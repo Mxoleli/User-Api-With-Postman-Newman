@@ -13,9 +13,17 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Validate Response\", function () {\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"UserID\", jsonData.id);\r",
+							"postman.setEnvironmentVariable(\"UserName\", jsonData.username);\r",
+							"postman.setEnvironmentVariable(\"FirstName\", jsonData.first_name);\r",
+							"postman.setEnvironmentVariable(\"LastName\", jsonData.last_name);\r",
+							"postman.setEnvironmentVariable(\"Password\", jsonData.password);\r",
+							"postman.setEnvironmentVariable(\"Phone\", jsonData.phone);\r",
+							"postman.setEnvironmentVariable(\"Email\", jsonData.email);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"   \r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -54,6 +62,49 @@
 					"path": [
 						"v2",
 						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validate Response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"   \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v2/user/login?{{UserName}}&{{Password}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "{{UserName}}",
+							"value": null
+						},
+						{
+							"key": "{{Password}}",
+							"value": null
+						}
 					]
 				}
 			},
