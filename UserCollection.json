@@ -22,7 +22,7 @@
 							"postman.setEnvironmentVariable(\"Phone\", jsonData.phone);\r",
 							"postman.setEnvironmentVariable(\"Email\", jsonData.email);\r",
 							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Verify the status code should be 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
@@ -74,7 +74,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Validate Response\", function () {\r",
+							"pm.test(\"Verify login test should have 200 status Response\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"   \r",
 							"});"
@@ -105,6 +105,94 @@
 							"key": "{{Password}}",
 							"value": null
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"console.log(responseJson.body)\r",
+							"\r",
+							"pm.test(\"Verify the status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{UserID}}\",\r\n    \"username\": \"{{UserName}}\",\r\n    \"first_name\": \"{{FirstName}}\",\r\n    \"last_name\": \"{{LastName}}\",\r\n    \"email\": \"{{UpdatedEmail}}\",\r\n    \"password\": \"{{UpdatedPassword}}\",\r\n    \"phone\": \"{{Phone}}\"\r\n  }\r\n"
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/user/{{UserName}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"user",
+						"{{UserName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validate Response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"   \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/user/{{UserName}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"user",
+						"{{UserName}}"
 					]
 				}
 			},

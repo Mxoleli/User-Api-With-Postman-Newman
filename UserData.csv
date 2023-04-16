@@ -1,8 +1,5 @@
-UserName,FirstName,LastName,Email,Password,Phone
-Virat,Virat,Kohli,vkohli@bcci.com,Kohli@V1,4259451512
-Steve,Steve,Smith,ssmith@ca.com,Smith@V1,4259451512
-Root,Joe,Root,jroot@ecb.com,Root@V1,4259451512
-Williamson,Kane,Williamson,kwilliamson@nzc.com,Williamson@V1,4259451512
-,,,,,
-,,,,,
-,,,,,
+UserName,FirstName,LastName,Email,Password,Phone,UpdatedEmail,UpdatedPassword
+Virat,Virat,Kohli,vkohli@bcci.com,Kohli@V1,4259451512,vkohliUpdated@bcci.com,UpdatedKohli@V1
+Steve,Steve,Smith,ssmith@ca.com,Smith@V1,4259451512,ssmithUpdated@ca.com,UpdatedSmith@V1
+Root,Joe,Root,jroot@ecb.com,Root@V1,4259451512,jrootUpdated@ecb.com,UpdatedRoot@V1
+Williamson,Kane,Williamson,kwilliamson@nzc.com,Williamson@V1,4259451512,kwilliamsonUpdated@nzc.com,UpdatedWilliamson@V1
