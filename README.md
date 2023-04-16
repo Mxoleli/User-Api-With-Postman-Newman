@@ -5,9 +5,9 @@ You will need to install the below packages in order to run this framework local
 
 Newman commands to run the tests
 
-| Operations                                    | Commands                                                                    | 
-| --------------------------------------------- |:---------------------------------------------------------------------------:| 
-| Simple collection                             | run	newman run UserCollection.json                                          | 
-| Run a collection with environment details     | newman run UserCollection.json -e TestEnv.json                              |  
-| Run a collection with an external data source | newman run UserCollection.json -e TestEnv.json -d UserData.csv              |
-| Generate Junit report                         | newman run UserCollection.json -e TestEnv.json -d UserData.csv -r htmlextra |
+| Operations | Commands  | 
+| ---------- |:---------:| 
+| Simple collection  | run	newman run UserCollection.json  | 
+| Run a collection with environment details | newman run UserCollection.json -e TestEnv.json  |  
+| Run a collection with an external data source | newman run UserCollection.json -e TestEnv.json -d UserData.csv  |
+| Generate Junit report | newman run UserCollection.json -e TestEnv.json -d UserData.csv -r htmlextra |
